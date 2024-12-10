@@ -1,8 +1,17 @@
 import { awscdk } from 'projen';
+import { ArrowParens } from 'projen/lib/javascript';
+
+const cdkVersion = '2.172.0';
+const devDeps = [
+  '@aws-cdk/integ-tests-alpha',
+  'cdk-nag',
+  `@aws-cdk/aws-lambda-python-alpha@${cdkVersion}-alpha.0`
+];
+
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Eddie Mattia',
   authorAddress: 'eddie@outerbounds.com',
-  cdkVersion: '2.1.0',
+  cdkVersion: cdkVersion,
   defaultReleaseBranch: 'main',
   jsiiVersion: '~5.5.0',
   name: 'cdk-mf',
@@ -11,7 +20,19 @@ const project = new awscdk.AwsCdkConstructLibrary({
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
+  devDeps: devDeps,            
   // packageName: undefined,  /* The "name" in package.json. */
+  eslintOptions: {
+    dirs: ['src', 'test'],
+    prettier: true,
+  },
+  prettier: true,
+  prettierOptions: {
+    settings: {
+      singleQuote: true,
+      printWidth: 120,
+      arrowParens: ArrowParens.AVOID,
+    },
+  },
 });
 project.synth();
