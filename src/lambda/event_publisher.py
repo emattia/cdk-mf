@@ -20,8 +20,6 @@ def get_pets():
 
 @logger.inject_lambda_context(correlation_id_path=correlation_paths.API_GATEWAY_REST)
 @tracer.capture_lambda_handler
-@event_source(data_class=APIGatewayAuthorizerRequestEvent)
-def lambda_handler(
-    event: APIGatewayAuthorizerRequestEvent, context: LambdaContext
-) -> dict:
-    return app.resolve(event.raw_event, context)
+def handler(event: dict, context: LambdaContext) -> dict:
+    # return app.resolve(event.raw_event, context)
+    return {"statusCode": 200, "body": "Hello from Python Lambda!"}

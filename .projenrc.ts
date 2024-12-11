@@ -14,7 +14,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   projenrcTs: true,
   repositoryUrl: 'https://github.com/emattia/cdk-mf.git',
 
-  // deps: [],                /* Runtime dependencies of this module. */
+  deps: devDeps /* Runtime dependencies of this module. */,
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   devDeps: devDeps,
   // packageName: undefined,  /* The "name" in package.json. */
@@ -30,5 +30,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
       arrowParens: ArrowParens.AVOID,
     },
   },
+  gitignore: ['cdk.out'],
 });
 project.synth();
