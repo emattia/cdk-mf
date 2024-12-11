@@ -2,7 +2,7 @@ import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as python from '@aws-cdk/aws-lambda-python-alpha';
 import { Construct } from 'constructs';
-import path from 'path';
+import * as path from 'path';
 
 export interface CustomProps {
   Name: string;
@@ -22,17 +22,16 @@ export class EventLambdaConstruct extends Construct {
     });
     bucket.grantReadWrite(myLambda);
 
-    const pyFunc = new python.PythonFunction(
-        this,
-        'EventLambdaFunction',
-        {
-            architecture: lambda.Architecture.X86_64,
-            runtime: lambda.Runtime.PYTHON_3_12,
-            entry: path.join(__dirname, 'lambda'),
-            index: 'event_publisher.py',
-            
-        }
-    )
+    const _pyFunc = new python.PythonFunction(
+      this,
+      'EventLambdaFunction',
+      {
+        architecture: lambda.Architecture.X86_64,
+        runtime: lambda.Runtime.PYTHON_3_12,
+        entry: path.join(__dirname, 'lambda'),
+        index: 'event_publisher.py',
+      }
+    );
 
   }
 
