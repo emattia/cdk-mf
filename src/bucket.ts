@@ -22,6 +22,7 @@ export class EventLambdaConstruct extends Construct {
     });
     bucket.grantReadWrite(myLambda);
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const _pyFunc = new python.PythonFunction(
       this,
       'EventLambdaFunction',
