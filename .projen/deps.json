@@ -28,6 +28,10 @@
       "type": "build"
     },
     {
+      "name": "aws-cdk",
+      "type": "build"
+    },
+    {
       "name": "cdk-nag",
       "type": "build"
     },
@@ -126,6 +130,10 @@
     },
     {
       "name": "@aws-cdk/integ-tests-alpha",
+      "type": "runtime"
+    },
+    {
+      "name": "aws-cdk",
       "type": "runtime"
     },
     {

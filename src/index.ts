@@ -1,1 +1,1 @@
-export * from './bucket';
+export * from './lambda';

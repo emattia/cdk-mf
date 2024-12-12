@@ -2,37 +2,37 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
-### EventLambdaConstruct <a name="EventLambdaConstruct" id="cdk-mf.EventLambdaConstruct"></a>
+### MetaflowEventLambdaConstruct <a name="MetaflowEventLambdaConstruct" id="cdk-mf.MetaflowEventLambdaConstruct"></a>
 
-#### Initializers <a name="Initializers" id="cdk-mf.EventLambdaConstruct.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk-mf.MetaflowEventLambdaConstruct.Initializer"></a>
 
 ```typescript
-import { EventLambdaConstruct } from 'cdk-mf'
+import { MetaflowEventLambdaConstruct } from 'cdk-mf'
 
-new EventLambdaConstruct(scope: Construct, id: string, props: ICustomProps)
+new MetaflowEventLambdaConstruct(scope: Construct, id: string, props: ICustomProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-mf.EventLambdaConstruct.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#cdk-mf.EventLambdaConstruct.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk-mf.EventLambdaConstruct.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-mf.ICustomProps">ICustomProps</a></code> | *No description.* |
+| <code><a href="#cdk-mf.MetaflowEventLambdaConstruct.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk-mf.MetaflowEventLambdaConstruct.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk-mf.MetaflowEventLambdaConstruct.Initializer.parameter.props">props</a></code> | <code><a href="#cdk-mf.ICustomProps">ICustomProps</a></code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="cdk-mf.EventLambdaConstruct.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk-mf.MetaflowEventLambdaConstruct.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="cdk-mf.EventLambdaConstruct.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="cdk-mf.MetaflowEventLambdaConstruct.Initializer.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-##### `props`<sup>Required</sup> <a name="props" id="cdk-mf.EventLambdaConstruct.Initializer.parameter.props"></a>
+##### `props`<sup>Required</sup> <a name="props" id="cdk-mf.MetaflowEventLambdaConstruct.Initializer.parameter.props"></a>
 
 - *Type:* <a href="#cdk-mf.ICustomProps">ICustomProps</a>
 
@@ -42,11 +42,11 @@ new EventLambdaConstruct(scope: Construct, id: string, props: ICustomProps)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-mf.EventLambdaConstruct.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk-mf.MetaflowEventLambdaConstruct.toString">toString</a></code> | Returns a string representation of this construct. |
 
 ---
 
-##### `toString` <a name="toString" id="cdk-mf.EventLambdaConstruct.toString"></a>
+##### `toString` <a name="toString" id="cdk-mf.MetaflowEventLambdaConstruct.toString"></a>
 
 ```typescript
 public toString(): string
@@ -58,21 +58,21 @@ Returns a string representation of this construct.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#cdk-mf.EventLambdaConstruct.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk-mf.MetaflowEventLambdaConstruct.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-mf.EventLambdaConstruct.isConstruct"></a>
+##### ~~`isConstruct`~~ <a name="isConstruct" id="cdk-mf.MetaflowEventLambdaConstruct.isConstruct"></a>
 
 ```typescript
-import { EventLambdaConstruct } from 'cdk-mf'
+import { MetaflowEventLambdaConstruct } from 'cdk-mf'
 
-EventLambdaConstruct.isConstruct(x: any)
+MetaflowEventLambdaConstruct.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
 
-###### `x`<sup>Required</sup> <a name="x" id="cdk-mf.EventLambdaConstruct.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="cdk-mf.MetaflowEventLambdaConstruct.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -84,11 +84,11 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk-mf.EventLambdaConstruct.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk-mf.MetaflowEventLambdaConstruct.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="cdk-mf.EventLambdaConstruct.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="cdk-mf.MetaflowEventLambdaConstruct.property.node"></a>
 
 ```typescript
 public readonly node: Node;

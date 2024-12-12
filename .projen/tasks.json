@@ -101,6 +101,33 @@
         }
       ]
     },
+    "deploy": {
+      "name": "deploy",
+      "description": "Synthesize and deploy the CDK stack",
+      "steps": [
+        {
+          "exec": "npx projen synth && NODE_OPTIONS=\"--max-old-space-size=4096\" npx aws-cdk deploy --app cdk.out --require-approval never"
+        }
+      ]
+    },
+    "deploy:hotswap": {
+      "name": "deploy:hotswap",
+      "description": "Deploy using hotswap deployment for faster updates",
+      "steps": [
+        {
+          "exec": "npx projen synth && NODE_OPTIONS=\"--max-old-space-size=4096\" npx aws-cdk deploy --app cdk.out --require-approval never --hotswap"
+        }
+      ]
+    },
+    "deploy:watch": {
+      "name": "deploy:watch",
+      "description": "Deploy with watch mode for development",
+      "steps": [
+        {
+          "exec": "npx projen synth && NODE_OPTIONS=\"--max-old-space-size=4096\" npx aws-cdk deploy --app cdk.out --require-approval never --watch"
+        }
+      ]
+    },
     "docgen": {
       "name": "docgen",
       "description": "Generate API.md from .jsii manifest",
@@ -226,6 +253,15 @@
         }
       ]
     },
+    "synth": {
+      "name": "synth",
+      "description": "Synthesize CDK app",
+      "steps": [
+        {
+          "exec": "npx ts-node --project tsconfig.dev.json src/main.ts"
+        }
+      ]
+    },
     "test": {
       "name": "test",
       "description": "Run tests",
@@ -273,13 +309,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@aws-cdk/integ-tests-alpha,@types/jest,@types/node,cdk-nag,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,jsii-diff,jsii-pacmak,prettier,projen,ts-jest,ts-node,typescript"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@aws-cdk/integ-tests-alpha,@types/jest,@types/node,aws-cdk,cdk-nag,eslint-config-prettier,eslint-import-resolver-typescript,eslint-plugin-import,eslint-plugin-prettier,jest,jsii-diff,jsii-pacmak,prettier,projen,ts-jest,ts-node,typescript"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @aws-cdk/aws-lambda-python-alpha @aws-cdk/integ-tests-alpha @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser cdk-nag commit-and-tag-version eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii prettier projen ts-jest ts-node typescript aws-cdk-lib constructs"
+          "exec": "yarn upgrade @aws-cdk/aws-lambda-python-alpha @aws-cdk/integ-tests-alpha @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk cdk-nag commit-and-tag-version eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint jest jest-junit jsii-diff jsii-docgen jsii-pacmak jsii-rosetta jsii prettier projen ts-jest ts-node typescript aws-cdk-lib constructs"
         },
         {
           "exec": "npx projen"

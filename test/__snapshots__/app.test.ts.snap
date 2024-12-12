@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "MetaflowEventLambdaConstructEventLambdaFunction3550B59A": {
+      "DependsOn": [
+        "MetaflowEventLambdaConstructEventLambdaFunctionServiceRoleDefaultPolicy0C698465",
+        "MetaflowEventLambdaConstructEventLambdaFunctionServiceRole11C0B6E4",
+      ],
+      "Properties": {
+        "Architectures": [
+          "x86_64",
+        ],
+        "Code": {
+          "S3Bucket": {
+            "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
+          },
+          "S3Key": "02c45e62842f9bde67b4b5d169c4ab87540e9d3404f1db0153b40e4f4e742068.zip",
+        },
+        "Handler": "event_publisher.handler",
+        "Role": {
+          "Fn::GetAtt": [
+            "MetaflowEventLambdaConstructEventLambdaFunctionServiceRole11C0B6E4",
+            "Arn",
+          ],
+        },
+        "Runtime": "python3.12",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "MetaflowEventLambdaConstructEventLambdaFunctionServiceRole11C0B6E4": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "MetaflowEventLambdaConstructEventLambdaFunctionServiceRoleDefaultPolicy0C698465": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+                "s3:DeleteObject*",
+                "s3:PutObject",
+                "s3:PutObjectLegalHold",
+                "s3:PutObjectRetention",
+                "s3:PutObjectTagging",
+                "s3:PutObjectVersionTagging",
+                "s3:Abort*",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "MetaflowEventLambdaConstructMyFirstBucketB3E8B1F6",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "MetaflowEventLambdaConstructMyFirstBucketB3E8B1F6",
+                          "Arn",
+                        ],
+                      },
+                      "/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "MetaflowEventLambdaConstructEventLambdaFunctionServiceRoleDefaultPolicy0C698465",
+        "Roles": [
+          {
+            "Ref": "MetaflowEventLambdaConstructEventLambdaFunctionServiceRole11C0B6E4",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "MetaflowEventLambdaConstructMyFirstBucketB3E8B1F6": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "BucketName": "cdks3bucket-mystackMetaflowEventLambdaConstruct1a1b52b9",
+      },
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

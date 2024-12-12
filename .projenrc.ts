@@ -1,4 +1,4 @@
-import { awscdk } from 'projen';
+import { awscdk, JsonFile } from 'projen';
 import { ArrowParens } from 'projen/lib/javascript';
 
 const cdkVersion = '2.172.0';
@@ -32,4 +32,16 @@ const project = new awscdk.AwsCdkConstructLibrary({
   },
   gitignore: ['cdk.out'],
 });
+
+project.addTask('deploy', {
+  exec: 'npx ts-node --project tsconfig.dev.json src/main.ts',
+  description: 'Deploy the CDK stack',
+});
+
+new JsonFile(project, `cdk.json`, {
+  obj: {
+    app: 'npx ts-node --project tsconfig.dev.json src/main.ts',
+  },
+});
+
 project.synth();
