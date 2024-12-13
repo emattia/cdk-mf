@@ -30,7 +30,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
       arrowParens: ArrowParens.AVOID,
     },
   },
-  gitignore: ['cdk.out'],
+  gitignore: ['cdk.out', 'animations/media', 'animations/__pycache__'],
 });
 
 project.addTask('deploy', {

@@ -31,6 +31,8 @@ jspm_packages/
 .yarn-integrity
 .cache
 cdk.out
+animations/media
+animations/__pycache__
 /test-reports/
 junit.xml
 /coverage/
